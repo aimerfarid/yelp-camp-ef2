@@ -1,0 +1,130 @@
+html {
+    position: relative;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/*body {*/
+/*  display: -ms-flexbox;*/
+/*  display: flex;*/
+/*  -ms-flex-align: center;*/
+/*  align-items: center;*/
+/*  padding-top: 40px;*/
+/*  padding-bottom: 40px;*/
+/*  background-color: #f5f5f5;*/
+/*  margin-bottom: 60px;*/
+/*}*/
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+#inputUsername {
+  margin-bottom: -1px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+#inputAdmin {
+  margin-top: -1px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+#inputPasswordL {
+  margin-top: -1px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.form-signin button {
+  margin-top: 10px;
+}
+
+
+/* Sticky footer styles*/
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.container {
+  margin-bottom: 60px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here*/
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}
+
+/* Thumbnail styles*/
+.thumbnail img {
+    width: 100%;
+}
+
+.thumbnail {
+    padding: 0;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+.form-inline {
+    display: inline;
+}
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
