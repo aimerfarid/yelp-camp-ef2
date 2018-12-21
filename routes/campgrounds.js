@@ -22,7 +22,7 @@ var upload = multer({ storage: storage, fileFilter: imageFilter})
 
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
-  cloud_name: 'aimercloud96', 
+  cloud_name: process.env.CLOUD_NAME, 
   api_key: process.env.CLOUDINARY_API_KEY, 
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
@@ -72,21 +72,25 @@ router.get("/", function(req, res){
 // cloudinary.v2.uploader.upload(req.file.path, function(err, result) {console.log(result, error)});
 //CREATE - add new campground to DB
 router.post("/", middleware.isLoggedIn, upload.single("image"), function(req, res){
-    // geocoder configuration
-    geocoder.geocode(req.body.location, function (err, data) {
-        if (err || !data.length) {
-            req.flash("error", "Invalid address");
-            return res.redirect("back");
+    // cloudinary configuration
+    cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
+        if (err) {
+         req.flash("error", err.message);
+         return res.redirect("back");
         }
-        req.body.campground.lat = data[0].latitude;
-        req.body.campground.lng = data[0].longitude;
-        req.body.campground.location = data[0].formattedAddress;
-        
-        //numeral configuration
-        req.body.campground.price = numeral(req.body.price).format('0,0.00');
-        
-        // cloudinary configuration
-        cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
+        // geocoder configuration
+        geocoder.geocode(req.body.location, function (err, data) {
+            if (err || !data.length) {
+                req.flash("error", "Invalid address");
+                return res.redirect("back");
+            }
+            req.body.campground.lat = data[0].latitude;
+            req.body.campground.lng = data[0].longitude;
+            req.body.campground.location = data[0].formattedAddress;
+            
+            //numeral configuration
+            req.body.campground.price = numeral(req.body.price).format('0,0.00');
+            
             // add cloudinary url for the image to the campground object under image property
             req.body.campground.image = result.secure_url;
             // add image's public_id to campground object
