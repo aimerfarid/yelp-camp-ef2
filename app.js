@@ -19,6 +19,7 @@ var commentRoutes = require("./routes/comments"),
     indexRoutes = require("./routes/index")
 
 // console.log(process.env.DATABASE_URL);
+
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true});
 // mongoose.connect("mongodb://aimerfarid:Wrestling2@ds139944.mlab.com:39944/yelpcampef2", { useNewUrlParser: true});
 
